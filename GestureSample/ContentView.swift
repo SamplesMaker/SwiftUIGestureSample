@@ -9,8 +9,15 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State var didTap = false
+    
     var body: some View {
-        Text("Hello, World!")
+        Text("Please Tap Me")
+        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
+        .gesture(TapGesture().onEnded { self.didTap.toggle() })
+        .background(didTap ? Color.yellow : Color.pink)
+    
     }
 }
 
